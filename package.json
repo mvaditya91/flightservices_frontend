@@ -14,7 +14,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "set PORT=8080 && react-scripts start",
+    "start": "set PORT=7999 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"http://FlightServices-LoadBalancer-1-708043305.us-east-2.elb.amazonaws.com:8080"
 }

@@ -10,8 +10,8 @@ class DisplayFlights extends React.Component {
     }
 
     componentWillMount() {
-        axios.get('/flightServices/flights?from='+this.props.match.params.from+
-        '&to='+this.props.match.params.to+'&departureDate='+this.props.match.params.departureDate).then(
+        axios.get("http://fslb-1-517008262.us-east-2.elb.amazonaws.com:8081/flightServices/flights?from="+this.props.match.params.from+
+        "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{
                 const flightData = res.data;
                 this.setState({flightData});

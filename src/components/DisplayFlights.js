@@ -31,7 +31,7 @@ class DisplayFlights extends React.Component {
                     <th> Departure_Time_And_Date </th>
                 </thead>
                 <tbody>
-                    {this.state.flight.map(flight=><RowCreator item={flight}/>)}
+                    {this.state.flightData.map(flight=><RowCreator item={flight}/>)}
                 </tbody>
             </table>
         </div>);

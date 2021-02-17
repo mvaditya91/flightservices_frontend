@@ -14,7 +14,7 @@ class DisplayFlights extends React.Component {
         "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{
                 const flightData = res.data;
-                this.setState({flightData: [...JSON]});
+                this.setState({flightData});
                 console.log(flightData);
             }
         )
@@ -31,7 +31,7 @@ class DisplayFlights extends React.Component {
                     <th> Departure_Time_And_Date </th>
                 </thead>
                 <tbody>
-                    {this.state.flightData.map(flight=><RowCreator item={flight}/>)}
+                    {this.state.flight.map(flight=><RowCreator item={flight}/>)}
                 </tbody>
             </table>
         </div>);

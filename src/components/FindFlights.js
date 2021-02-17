@@ -4,7 +4,7 @@ import React from 'react';
 class FindFlights extends React.Component {
 
     handleSubmit(event) {
-        this.props.history.push('/displayFlights/'+this.from+'/'+this.to+'/'+this.departureDate);
+        this.props.history.push("displayFlights/"+this.from+"/"+this.to+"/"+this.departureDate);
     }
 
     render() {

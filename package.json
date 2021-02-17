@@ -38,5 +38,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"http://flightservices-1091586357.us-east-2.elb.amazonaws.com"
 }

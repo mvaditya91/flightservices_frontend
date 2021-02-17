@@ -9,7 +9,7 @@ class PassengerDetails extends React.Component {
         axios.get("/flightServices/flights/"+this.props.match.params.flightId)
         .then(res=>{
             const passengerData = res.data;
-            this.setState({passengerData: JSON});
+            this.setState({passengerData: [...JSON]});
         })
     }
 

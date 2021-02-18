@@ -9,7 +9,7 @@ class DisplayFlights extends React.Component {
         flightData:[]
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get("/flightServices/flights?from="+this.props.match.params.from+
         "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{

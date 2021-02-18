@@ -5,7 +5,7 @@ class PassengerDetails extends React.Component {
 
     state ={}
 
-    componentDidMount() {
+    componentWillMount() {
         axios.get("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/flights/"+this.props.match.params.flightId)
         .then(res=>{
             this.setState(res.data);
@@ -24,7 +24,7 @@ class PassengerDetails extends React.Component {
         }
         axios.post("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/reservations",data).
         then(res=>{
-            this.props.history.push('/confirmReservation/'+res.data.id)
+            this.props.history.push("/confirmReservation/"+res.data.id)
         })
     }
 

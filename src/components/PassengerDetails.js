@@ -9,14 +9,12 @@ class PassengerDetails extends React.Component {
         axios.get("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/flights/"+this.props.match.params.flightId)
         .then(res=>{
             this.setState(res.data);
-           // let myState = Object.entries(this.state);
-            //this.state = myState;
         })
     }
 
     onSubmit(event) {
         event.preventDefault();
-        const passengerData = {
+        const data = {
             flightId: this.props.match.params.flightId,
             firstName: this.firstName,
             lastName: this.lastName,
@@ -24,9 +22,9 @@ class PassengerDetails extends React.Component {
             email: this.email,
             phoneNumber:this.phoneNumber
         }
-        axios.post("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/reservations",passengerData).
+        axios.post("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/reservations",data).
         then(res=>{
-            this.props.history.push('/confirmReservation/'+res.passengerData.id)
+            this.props.history.push('/confirmReservation/'+res.data.id)
         })
     }
 

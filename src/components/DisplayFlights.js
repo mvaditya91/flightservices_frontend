@@ -15,9 +15,9 @@ class DisplayFlights extends React.Component {
             res=>{
                 //const flightData = res.data;
                 const flightData = Array.from(res.data);
-                var newData = this.state.data.concat([flightData]);  
-                this.setState({flightData:newData});
-               // console.log(flightData);
+               // var newData = this.state.data.concat([flightData]);  
+                this.setState({flightData});
+               console.log(flightData);
             }
         )
     }
@@ -33,7 +33,7 @@ class DisplayFlights extends React.Component {
                     <th> Departure_Time_And_Date </th>
                 </thead>
                 <tbody>
-                    {this.state.flightData.entries.map(flight=><RowCreator item={flight}/>)}
+                    {this.state.flightData.map(flight=><RowCreator item={flight}/>)}
                 </tbody>
             </table>
         </div>);

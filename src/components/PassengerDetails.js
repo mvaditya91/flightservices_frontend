@@ -15,7 +15,7 @@ class PassengerDetails extends React.Component {
     }
 
     onSubmit(event) {
-      //  event.preventDefault();
+        event.preventDefault();
         const data = {
             flightId: this.props.match.params.flightId,
             firstName: this.firstName,
@@ -24,7 +24,7 @@ class PassengerDetails extends React.Component {
             email: this.email,
             phoneNumber:this.phoneNumber
         }
-        axios.post("http://localhost:8081/flightServices/reservations",data)
+        axios.post("http://localhost:8081/flightServices/reservations/",data)
         .then(res=>{
             this.props.history.push("/confirmReservation/"+res.data.id)
         })

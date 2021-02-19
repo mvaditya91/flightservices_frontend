@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 import react from 'react';
@@ -9,12 +10,14 @@ class DisplayFlights extends React.Component {
         flightData:[]
     }
 
-    componentWillMount() {
-        axios.get("http://localhost:8081/flightServices/flights?from="+this.props.match.params.from+
+    componentDidMount() {
+        axios.get("http://flightservices-1091586357.us-east-2.elb.amazonaws.com/flightServices/flights?from="+this.props.match.params.from+
         "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{
-                this.setState(res.data);
-                console.log(res.data);
+                const flightData = res.data;
+               // const flightData = Array.from(res.data);
+                this.setState({flightData});
+               console.log(flightData);
             }
         )
     }

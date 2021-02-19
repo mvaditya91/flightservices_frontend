@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import react from 'react';
 import {Link} from 'react-router-dom';
 
 class DisplayFlights extends React.Component {
@@ -13,7 +12,9 @@ class DisplayFlights extends React.Component {
         axios.get("http://localhost:8081/flightServices/flights?from="+this.props.match.params.from+
         "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{
-                this.setState(res.data);
+                const flightInfo = res.data;
+                this.setState({flightInfo});
+                console.log(flightInfo);
             }
         )
     }

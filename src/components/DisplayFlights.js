@@ -15,7 +15,6 @@ class DisplayFlights extends React.Component {
         "&to="+this.props.match.params.to+"&departureDate="+this.props.match.params.departureDate).then(
             res=>{
                 const flightData = res.data;
-               // const flightData = Array.from(res.data);
                 this.setState({flightData});
                console.log(flightData);
             }

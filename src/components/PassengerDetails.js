@@ -5,12 +5,10 @@ class PassengerDetails extends React.Component {
 
     state ={}
 
-    componentDidMount() {
-        axios.get("flightServices/flights/"+this.props.match.params.flightId)
+    componentWillMount() {
+        axios.get("/flightServices/flights/"+this.props.match.params.flightId)
         .then(res=>{
-            const flightData = res.data;
-            this.setState(flightData);
-            console.log(flightData);
+             this.setState(res.data);
         })
     }
 
@@ -18,15 +16,15 @@ class PassengerDetails extends React.Component {
         event.preventDefault();
         const data = {
             flightId: this.props.match.params.flightId,
-            firstName: this.firstName,
-            lastName: this.lastName,
-            middleName: this.middleName,
-            email: this.email,
-            phoneNumber:this.phoneNumber
+            firstName: event.firstName,
+            lastName: event.lastName,
+            middleName: event.middleName,
+            email: event.email,
+            phoneNumber: event.phoneNumber
         }
-        axios.post("flightServices/reservations/",data)
-        .then(res=>{
-            this.props.history.push("/confirmReservation/"+res.data.id)
+        axios.post("/flightServices/reservations",data).
+        then(res=>{
+            this.props.history.push('/confirmReservation/'+res.data.id)
         })
     }
 
